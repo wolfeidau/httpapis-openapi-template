@@ -1,4 +1,4 @@
-APPNAME := website-openid-proxy
+APPNAME := httpapis-openapi-template
 STAGE ?= dev
 BRANCH ?= master
 SAR_VERSION ?= 1.0.0

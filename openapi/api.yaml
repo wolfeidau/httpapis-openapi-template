@@ -1,0 +1,43 @@
+openapi: 3.0.2
+info:
+  title: Example API
+  description: |
+    This API provides an example document storage service.
+  version: '2021-08-15'
+x-amazon-apigateway-request-validators:
+  all:
+    validateRequestBody: true
+    validateRequestParameters: true
+x-amazon-apigateway-request-validator: all
+tags:
+  - name: document
+    description: Document operations.
+paths:
+  /2021-08-15/document:
+    post:
+      summary: create a document.
+      description: This operation will accept a JSON document and store it.
+      operationId: NewDocument
+      tags:
+      - document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewDocument'
+      responses:
+        '201':
+          description: document created response
+          # content:
+          #   application/json
+      x-amazon-apigateway-integration:
+        uri:
+          'Fn::Sub': 'arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${APIFunction.Arn}:live/invocations'
+        httpMethod: POST
+        type: aws_proxy
+        passthroughBehavior: never
+components:
+  schemas:
+    NewDocument:
+      description: New Document

@@ -5,7 +5,9 @@ import (
 	"github.com/apex/gateway/v2"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/labstack/echo/v4"
+	"github.com/wolfeidau/httpapis-openapi-template/internal/api"
 	"github.com/wolfeidau/httpapis-openapi-template/internal/flags"
+	"github.com/wolfeidau/httpapis-openapi-template/internal/server"
 	lmw "github.com/wolfeidau/lambda-go-extras/middleware"
 	"github.com/wolfeidau/lambda-go-extras/middleware/raw"
 	zlog "github.com/wolfeidau/lambda-go-extras/middleware/zerolog"
@@ -23,6 +25,10 @@ func main() {
 	)
 
 	e := echo.New()
+
+	da := server.NewDocumentsAPI()
+
+	api.RegisterHandlers(e, da)
 
 	gw := gateway.NewGateway(e)
 

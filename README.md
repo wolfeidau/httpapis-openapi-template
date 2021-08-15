@@ -18,7 +18,7 @@ Create an .envrc file using [direnv](https://direnv.net/).
 export AWS_PROFILE=wolfeidau
 export AWS_DEFAULT_PROFILE=wolfeidau
 export AWS_REGION=ap-southeast-2
-export DEPLOY_BUCKET=cf-abc123-ap-southeast-2
+export DEPLOY_BUCKET=cf-templates-abc123-ap-southeast-2
 ```
 
 To deploy the stack run.

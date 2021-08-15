@@ -42,6 +42,11 @@ Resources:
   HttpAPI:
     Type: AWS::Serverless::HttpApi
     Properties:
+      DefinitionBody:
+        'Fn::Transform':
+          Name: 'AWS::Include'
+          Parameters:
+            Location: '../../openapi/api.yaml'
       DefaultRouteSettings:
         ThrottlingBurstLimit: 10
         ThrottlingRateLimit: 10
