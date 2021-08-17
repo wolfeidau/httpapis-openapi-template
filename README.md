@@ -2,12 +2,18 @@
 
 This project provides a template for a Go based REST API hosted in AWS Lambda using API Gatway HTTPAPIs.
 
+# Prerequisites
+
+* [Go](https://golang.org)
+* AWS Credentials configured in your environment, [configure your AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+* [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+
 # Deployment
 
 Update the `project.mk` file with `APPNAME` and `MODULE_PKG` used for your project.
 
 ```
-make init
+make update-module
 ```
 
 Create an .envrc file using [direnv](https://direnv.net/).

@@ -1,6 +1,8 @@
 package server
 
 import (
+	"net/http"
+
 	"github.com/labstack/echo/v4"
 	"github.com/rs/zerolog/log"
 )
@@ -16,10 +18,9 @@ func NewDocumentsAPI() *DocumentsAPI {
 //
 // (POST /2021-08-15/document)
 func (da *DocumentsAPI) NewDocument(c echo.Context) error {
-
 	ctx := c.Request().Context()
 
 	log.Ctx(ctx).Info().Msg("NewDocument")
 
-	return c.String(201, `{"status":"ok"}`)
+	return c.String(http.StatusCreated, `{"status":"ok"}`)
 }

@@ -1,6 +1,7 @@
 GOLANGCI_VERSION = 1.34.0
 
 LDFLAGS := -ldflags="-s -w -X main.version=${GIT_HASH}_${BUILD_DATE}"
+CUR_PKG := $(shell go list -m)
 
 # This path is used to cache binaries used for development and can be overridden to avoid issues with osx vs linux
 # binaries.
@@ -25,10 +26,11 @@ mocks: $(BIN_DIR)/mockgen
 	@bin/mockgen -destination=mocks/session_store.go -package=mocks github.com/dghubble/sessions Store
 .PHONY: mocks
 
-init:
+update-module:
 	@echo "update the go module name to $(MODULE_PKG)"
 	@go mod edit -module $(MODULE_PKG)
-.PHONY: init
+	@find . -name \*.go | xargs sed -i 's%$(CUR_PKG)%$(MODULE_PKG)%g'
+.PHONY: update-module
 
 clean:
 	@echo "--- clean all the things"
