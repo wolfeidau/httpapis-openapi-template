@@ -35,6 +35,28 @@ make
 
 Your now ready to hit the API :tada:
 
+# FAQ
+
+Where are my cloudformation templates?
+
+[api.yaml](sam/backend/api.yaml)
+
+Where is the openapi spec?
+
+[api.yaml](openapi/api.yaml)
+
+Where is the lambda main function?
+
+[main.go](cmd/api-lambda/main.go)
+
+Whats is with the `**-lambda` convention for binaries?
+
+Anything in cmd is compiled into a binary, those ending with `-lambda` are bundled into the `handler.zip` uploaded to AWS for deployment in cloudformation.
+
+What is the lambda extras module you include and use in these lambdas?
+
+Have a read of the https://github.com/wolfeidau/lambda-go-extras README and take a look at the references and examples.
+
 ### Fork It And Make Your Own
 
 You can fork this repo to create your own boilerplate.
