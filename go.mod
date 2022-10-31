@@ -3,7 +3,7 @@ module github.com/wolfeidau/httpapis-openapi-template
 go 1.16
 
 require (
-	github.com/alecthomas/kong v0.2.17
+	github.com/alecthomas/kong v0.7.0
 	github.com/apex/gateway/v2 v2.0.0
 	github.com/aws/aws-lambda-go v1.26.0
 	github.com/getkin/kin-openapi v0.61.0
@@ -12,4 +12,5 @@ require (
 	github.com/wolfeidau/lambda-go-extras v1.4.0
 	github.com/wolfeidau/lambda-go-extras/middleware/raw v1.4.0
 	github.com/wolfeidau/lambda-go-extras/middleware/zerolog v1.4.0
+	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
